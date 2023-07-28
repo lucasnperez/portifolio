@@ -65,19 +65,19 @@ header .titulo {
 }
 
 .informacao .job::before {
-  background-image: url(/assets/img/job.svg);
+  background-image: url(../img/job.svg);
 }
 
 .informacao .localidade::before {
-  background-image: url(/assets/img/location.svg);
+  background-image: url(../img/location.svg);
 }
 
 .informacao .email::before {
-  background-image: url(/assets/img/email.svg);
+  background-image: url(../img/email.svg);
 }
 
 .informacao .fone::before {
-  background-image: url(/assets/img/phone.svg);
+  background-image: url(../img/phone.svg);
 }
 
 a {
