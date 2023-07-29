@@ -5,10 +5,12 @@
   padding: 0;
   margin: 0;
   font-family: "Inter", sans-serif;
+  color: #fff;
+  list-style: none;
 }
 
 body {
-  background-image: url(/assets/img/back.png);
+  background-image: url(../img/back.png);
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -28,7 +30,7 @@ header::after {
   right: 1rem;
   width: 2rem;
   height: 2rem;
-  background-image: url(/assets/img/header.svg);
+  background-image: url(../img/header.svg);
   background-repeat: no-repeat;
   background-size: contain;
 }
@@ -42,6 +44,12 @@ header .foto {
 header .titulo {
   text-align: center;
 }
+
+.main {
+  margin: 1rem;
+  padding: 1rem;
+}
+
 .informacao {
   display: flex;
   flex-direction: column;
@@ -55,6 +63,11 @@ header .titulo {
   align-items: center;
   margin: 0.5rem;
   font-size: 1.2rem;
+  flex-wrap: wrap;
+}
+
+.informacao p a{
+  padding-left: 5px;
 }
 
 .informacao p::before {
@@ -62,22 +75,28 @@ header .titulo {
   display: inline-block;
   width: 1rem;
   height: 1rem;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 .informacao .job::before {
   background-image: url(../img/job.svg);
+  margin-right: 5px;
 }
 
 .informacao .localidade::before {
   background-image: url(../img/location.svg);
+  margin-right: 2px;
 }
 
 .informacao .email::before {
   background-image: url(../img/email.svg);
+  margin-right: 8px;
 }
 
 .informacao .fone::before {
   background-image: url(../img/phone.svg);
+  margin-right: 5px;
 }
 
 a {
@@ -115,12 +134,194 @@ a:hover {
   border: none;
 }
 
-.janela .abrir h2{
-    margin: 0;
-    font-size: 1.5rem;
-    text-align: start;
+.janela .abrir h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  text-align: start;
 }
 
-.janela .abrir:hover{
-    cursor: pointer;
+.janela .abrir:hover {
+  cursor: pointer;
+}
+
+.janela .abrir::after {
+  content: "";
+  display: inline-block;
+  height: 1.5rem;
+  width: 2.5rem;
+  background-image: url(../img/arrow-top.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  transition: 0.25s;
+}
+
+.janela.open .abrir::after {
+  transform: rotate(180deg);
+}
+
+.janela .conteudo {
+  height: 0;
+  opacity: 0;
+  transition: opacity 0.25s ease-in-out;
+  overflow: hidden;
+}
+
+.janela.open .conteudo {
+  display: block;
+  padding: 0 1rem 1rem 2rem;
+  height: auto;
+  opacity: 1;
+}
+.skills {
+  display: flex;
+  flex-direction: column;
+}
+
+.skills .ferramentas {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+
+
+#hardSkills ul li img{
+  width: 100px;
+}
+
+.skills .ferramentas ul li img {
+  max-width: 100px;
+  max-height: 100px;
+  margin: 0 0 0.5rem;
+}
+.skills .pessoal ul li {
+  margin-left: 2rem;
+  padding: 0.5rem;
+}
+
+.experiencia {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.experiencia li {
+  margin-bottom: 1rem;
+}
+
+.idiomas {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: center;
+  margin: 0;
+  padding: 0;
+}
+
+.idiomas li {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-right: 1rem;
+  font-weight: 700;
+}
+.idiomas li::before {
+  content: "";
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  background-image: url(../img/check.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin-right: 0.5rem;
+}
+.portifolio {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.portifolio li {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin: 1rem 0;
+}
+.portifolio li h3 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.portifolio li h3.github::before {
+  content: "";
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  background-image: url(../img/github.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin-right: 0.5rem;
+}
+
+.github img {
+  width: 30px;
+}
+footer {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 1rem;
+}
+
+footer img {
+  max-width: 200px;
+}
+
+@media screen and (min-width: 760px) {
+  header {
+    display: grid;
+    grid-template-areas:
+      "foto titulo"
+      "foto informacao";
+  }
+  header .foto {
+    grid-area: foto;
+    margin: 0 auto;
+  }
+  header .titulo {
+    grid-area: titulo;
+    text-align: center;
+    max-width: 210px;
+  }
+  header .informacao {
+    grid-area: informacao;
+  }
+  .main {
+    max-width: 1024px;
+    margin: 1rem auto;
+  }
+  .main::before,
+  .main::after {
+    width: 70vw;
+  }
+  .skills {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
 }
